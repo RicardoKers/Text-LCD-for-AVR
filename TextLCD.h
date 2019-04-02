@@ -1,31 +1,34 @@
+// Text LDC display in 4 bit mode om AVR microcotroller
 // Versão 2019-1
 
-// data pin 4
+// data pin 4 from LCD
 #define LCD_DATA_PORT4_H PORTB|=0b00000100
 #define LCD_DATA_PORT4_L PORTB&=~0b00000100
 #define LCD_DATA_DIRECTION4 DDRB|=0b00000100
-// data pin 5
+// data pin 5 from LCD
 #define LCD_DATA_PORT5_H PORTB|=0b00001000
 #define LCD_DATA_PORT5_L PORTB&=~0b00001000
 #define LCD_DATA_DIRECTION5 DDRB|=0b00001000
-// data pin 6
+// data pin 6 from LCD
 #define LCD_DATA_PORT6_H PORTB|=0b00010000
 #define LCD_DATA_PORT6_L PORTB&=~0b00010000
 #define LCD_DATA_DIRECTION6 DDRB|=0b00010000
-// data pin 7
+// data pin 7 from LCD
 #define LCD_DATA_PORT7_H PORTB|=0b00100000
 #define LCD_DATA_PORT7_L PORTB&=~0b00100000
 #define LCD_DATA_DIRECTION7 DDRB|=0b00100000
 
-// E
+// E pin from LCD
 #define LCD_E_H PORTB|=0b00000010
 #define LCD_E_L PORTB&=~0b00000010
 #define LCD_E_DIRECTION DDRB|=0b00000010
 
-// RS
+// RS pin from LCD
 #define LCD_RS_H PORTB|=0b00000001
 #define LCD_RS_L PORTB&=~0b00000001
 #define LCD_RS_DIRECTION DDRB|=0b00000001
+
+// connect R/W pin to GND
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //                            D E L A Y
@@ -149,7 +152,7 @@ void gotoxy(char x,char y)
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //                               E S P E C I A L  C H A R
 //////////////////////////////////////////////////////////////////////////////////////////////////
-/*static void especial_char(char end, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
+static void especial_char(char end, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
 {
 	end=end*8+0x40;
 	grava_inst(end);
@@ -162,7 +165,7 @@ void gotoxy(char x,char y)
 	LCD_putchar(L7);
 	LCD_putchar(L8);
 }
-*/
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //                               P U T S T R
@@ -247,7 +250,7 @@ void putint(int dado)
 	{
 		str[cont]='-';
 		cont++;
-		dado=dado*(-1); // não funciona para -2147483648
+		dado=dado*(-1); 
 	}
 	if(dado>999999999)
 	{
