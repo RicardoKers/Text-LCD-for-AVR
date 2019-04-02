@@ -1,10 +1,10 @@
 # Text LCD display library for AVR Microcontrollers
 A small library for use of text LCD in 4 bit mode on AVR microcontrollers
 
-##How to use the library:
+## How to use the library:
 To configure the library, select the appropriate pins and ports on the first lines of code in the textLCD.h file, depending on the display connections in your circuit.
 
-##Here's an example:
+## Here's an example:
 To connect the display to the following pins,
 LCD data 4 - AVR PB2
 LCD data 5 - AVR PB3
@@ -15,7 +15,7 @@ LCD RS - AVR PB0
 LCD RW - GND
 
 The textLCD.h file should look like this.
-
+```
 // data pin 4 from LCD
 #define LCD_DATA_PORT4_H PORTB|=0b00000100
 #define LCD_DATA_PORT4_L PORTB&=~0b00000100
@@ -42,3 +42,4 @@ The textLCD.h file should look like this.
 #define LCD_RS_H PORTB|=0b00000001
 #define LCD_RS_L PORTB&=~0b00000001
 #define LCD_RS_DIRECTION DDRB|=0b00000001
+```
