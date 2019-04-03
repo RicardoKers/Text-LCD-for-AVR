@@ -91,7 +91,7 @@ int main(void)
 
 	while(1)
 	{
-        gotoxy(2,1);
+		gotoxy(2,1);
 		putstr("y = ");
 		putuint(y);
 		putstr("      ");
