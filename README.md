@@ -2,10 +2,11 @@
 A small library for use of text LCD in 4 bit mode on AVR microcontrollers
 
 ## How to use the library:
-To configure the library, select the appropriate pins and ports on the first lines of code in the textLCD.h file, depending on the display connections in your circuit.
+To configure the library, select the appropriate pins and ports on the first lines of code in the TextLCD.h file, depending on the display connections in your circuit. Also define the number of columns of your display.
 
 ## Here's an example:
 To connect the display to the following pins,
+```
 LCD data 4 - AVR PB2
 LCD data 5 - AVR PB3
 LCD data 6 - AVR PB4
@@ -13,7 +14,7 @@ LCD data 7 - AVR PB5
 LCD E - AVR PB1
 LCD RS - AVR PB0
 LCD RW - GND
-
+```
 The textLCD.h file should look like this.
 ```
 // data pin 4 from LCD
@@ -45,4 +46,33 @@ The textLCD.h file should look like this.
 #define LCD_RS_H PORTB|=0b00000001
 #define LCD_RS_L PORTB&=~0b00000001
 #define LCD_RS_DIRECTION DDRB|=0b00000001
+
+// Number of LCD columns
+#define LCD_columns 20
 ```
+## The library provides the following functions.
+
+### LCD_putchar(char c)
+Send character c to the display.
+
+### clr_lcd()
+Clears the display.
+
+### gotoxy(char x,char y)
+Position the cursor in the x and y position of the display.
+
+### especial_char(char addr, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
+Creates a custom character at address addr with the pixels of lines L1 to L8.
+
+### putstr(char *str)
+Sends a string to the display.
+
+### putuint(unsigned int data)
+Converts an unsigned integer to text and sends it to the display.
+
+### putint(int data)
+Converts an integer to text and sends it to the display.
+
+### LCD_init()
+Initializes the display.
+
