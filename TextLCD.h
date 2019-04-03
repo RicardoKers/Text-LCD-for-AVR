@@ -155,7 +155,7 @@ void gotoxy(char x,char y)
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //                               E S P E C I A L  C H A R
 //////////////////////////////////////////////////////////////////////////////////////////////////
-static void especial_char(char end, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
+static void especial_char(char addr, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
 {
 	addr=addr*8+0x40;
 	grava_inst(addr);
