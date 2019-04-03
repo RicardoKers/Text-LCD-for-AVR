@@ -158,7 +158,7 @@ void gotoxy(char x,char y)
 static void especial_char(char addr, char L1,char L2,char L3,char L4,char L5,char L6,char L7,char L8)
 {
 	addr=addr*8+0x40;
-	grava_inst(addr);
+	LCD_put_inst(addr);
 	LCD_putchar(L1);
 	LCD_putchar(L2);
 	LCD_putchar(L3);
