@@ -76,7 +76,8 @@ Converts an integer to text and sends it to the display.
 ### LCD_init()
 Initializes the display.
 
-## An example program that uses the TextLCD.h library on an ATmega8 microcontroller is shown below.
+## An example 
+An example program that uses the TextLCD.h library on an ATmega8 microcontroller is shown below.
 
 ```
 #include <avr/io.h>
