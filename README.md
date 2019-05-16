@@ -81,6 +81,8 @@ An example program that uses the TextLCD.h library on an ATmega8 microcontroller
 
 ```
 #include <avr/io.h>
+#define F_CPU 1000000UL  // 1 MHz (for delay.h)
+#include <util/delay.h>
 #include "TextLCD.h"
 
 int main(void)
@@ -96,6 +98,7 @@ int main(void)
 		putuint(y);
 		putstr("      ");
 		y++;
+		_delay_ms(500);
 	}
 }
 ```
